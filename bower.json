@@ -10,6 +10,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "src",
     "test",
     "Gruntfile",
     "karma.conf.js",
