@@ -2,9 +2,20 @@
   "name": "angular-uuid4",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "~1.2.0"
+    "angular": ">0.9.0"
   },
+  "main": "angular-uuid4.js",
+  "ignore": [
+    ".*",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "Gruntfile",
+    "karma.conf.js",
+    "package.json"
+  ],
   "devDependencies": {
-    "angular-mocks": "~1.2.0"
+    "angular-mocks": ">0.9.0"
   }
 }
