@@ -4,8 +4,8 @@ describe('uuid4', function() {
   describe('Testing uuid service', function() {
     var uuidService;
 
-    beforeEach(inject(function(uuid) {
-      uuidService = uuid;
+    beforeEach(inject(function(uuid4) {
+      uuidService = uuid4;
     }));
 
     it('should generate a uuid', function(){
