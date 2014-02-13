@@ -6,7 +6,7 @@
   angular.module('uuid4', []).factory('uuid4', function() {
     return {
       generate: function() {
-        var now = Date.now();
+        var now = typeof Date.now === 'function' ? Date.now() : new Date().getTime();
         var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
             var r = (now + Math.random()*16)%16 | 0;
             now = Math.floor(now/16);
