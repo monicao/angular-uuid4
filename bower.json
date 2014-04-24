@@ -1,6 +1,6 @@
 {
   "name": "angular-uuid4",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "dependencies": {
     "angular": ">0.9.0"
   },
