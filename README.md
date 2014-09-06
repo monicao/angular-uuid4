@@ -29,7 +29,7 @@ myapp.factory('FancyFactory', function(uuid4){
 You can also validate uuids.
 
 ```javascript
-uuidService.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')
+uuid4.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')
 // true
 ```
 
