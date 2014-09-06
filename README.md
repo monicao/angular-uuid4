@@ -1,6 +1,6 @@
 # angular-uuid4
 
-Angular service that generates RFC4122 version 4 UUIDs / GUIDs.
+Angular service that generates [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) version 4 UUIDs / GUIDs.
 
 Sample UUID: `f7e81995-1a52-48a4-88d1-f979e1917b29`
 
