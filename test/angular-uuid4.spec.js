@@ -9,8 +9,7 @@ describe('uuid4', function() {
     }));
 
     it('should generate a uuid', function(){
-      // f7e81995-1a52-48a4-88d1-f979e1917b29
-      expect(uuidService.generate()).toMatch(/[a-z0-9]{8}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-z0-9]{4}\-[a-z0-9]{12}/)
+      expect(uuidService.generate()).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
     });
 
     it('should validate a lower cased uuid', function(){
