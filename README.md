@@ -26,11 +26,15 @@ myapp.factory('FancyFactory', function(uuid4){
 });
 ```
 
+You can also validate uuids.
+
+```javascript
+uuidService.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')
+// true
+```
+
 ## Collisions
 
 There are [reports](http://stackoverflow.com/questions/6906916/collisions-when-generating-uuids-in-javascript) of `Math.random()` not working properly on some systems. This causes collisions (UUIDs that are the same). This code uses both `Math.random()` and `Date.now()` to generate the UUID in order to minimize the chance of collisions.
-
-
-
 
 
