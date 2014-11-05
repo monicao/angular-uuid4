@@ -2,6 +2,10 @@
   "name": "angular-uuid4",
   "version": "0.2.0",
   "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:monicao/angular-uuid4.git"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
