@@ -1,6 +1,6 @@
 # angular-uuid4
 
-Angular service that generates RFC4122 version 4 UUIDs / GUIDs.
+Angular service that generates [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) version 4 UUIDs / GUIDs.
 
 Sample UUID: `f7e81995-1a52-48a4-88d1-f979e1917b29`
 
@@ -29,7 +29,7 @@ myapp.factory('FancyFactory', function(uuid4){
 You can also validate uuids.
 
 ```javascript
-uuidService.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')
+uuid4.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')
 // true
 ```
 
