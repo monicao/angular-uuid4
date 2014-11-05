@@ -4,7 +4,7 @@ Angular service that generates [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) ve
 
 Sample UUID: `f7e81995-1a52-48a4-88d1-f979e1917b29`
 
-Based on this [stack overflow post](http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/2117523#2117523) but uses `Date.now()` instead of `new Date().getTime()` for [better performance](http://jsperf.com/date-now-vs-new-date).
+Based on pnegri's npm package: <https://github.com/pnegri/uuid-js>
 
 ## Usage
 

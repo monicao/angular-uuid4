@@ -2,18 +2,89 @@
   'use strict';
 
   // RFC4122 version 4 compliant UUID generator.
-  // Based on: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/2117523#2117523
+  // Based on: https://github.com/pnegri/uuid-js
   angular.module('uuid4', []).factory('uuid4', function () {
+
+    var maxFromBits = function(bits) {
+      return Math.pow(2, bits);
+    };
+
+    var limitUI04 = maxFromBits(4);
+    var limitUI06 = maxFromBits(6);
+    var limitUI08 = maxFromBits(8);
+    var limitUI12 = maxFromBits(12);
+    var limitUI14 = maxFromBits(14);
+    var limitUI16 = maxFromBits(16);
+    var limitUI32 = maxFromBits(32);
+    var limitUI40 = maxFromBits(40);
+    var limitUI48 = maxFromBits(48);
+
+    var getRandomInt = function(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var randomUI06 = function() {
+      return getRandomInt(0, limitUI06-1);
+    };
+
+    var randomUI08 = function() {
+      return getRandomInt(0, limitUI08-1);
+    };
+
+    var randomUI12 = function() {
+      return getRandomInt(0, limitUI12-1);
+    };
+
+    var randomUI16 = function() {
+      return getRandomInt(0, limitUI16-1);
+    };
+
+    var randomUI32 = function() {
+      return getRandomInt(0, limitUI32-1);
+    };
+
+    var randomUI48 = function() {
+      return (0 | Math.random() * (1 << 30)) + (0 | Math.random() * (1 << 48 - 30)) * (1 << 30);
+    };
+
+    var paddedString =  function(string, length, z) {
+      string = String(string);
+      z = (!z) ? '0' : z;
+      var i = length - string.length;
+      for (; i > 0; i >>>= 1, z += z) {
+        if (i & 1) {
+          string = z + string;
+        }
+      }
+      return string;
+    };
+
+    var fromParts = function(timeLow, timeMid, timeHiAndVersion, clockSeqHiAndReserved, clockSeqLow, node) {
+      var hex = paddedString(timeLow.toString(16), 8)
+                 + '-'
+                 + paddedString(timeMid.toString(16), 4)
+                 + '-'
+                 + paddedString(timeHiAndVersion.toString(16), 4)
+                 + '-'
+                 + paddedString(clockSeqHiAndReserved.toString(16), 2)
+                 + paddedString(clockSeqLow.toString(16), 2)
+                 + '-'
+                 + paddedString(node.toString(16), 12);
+      return hex;
+    };
+
     return {
       generate: function () {
-        var now = typeof Date.now === 'function' ? Date.now() : new Date().getTime();
-        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-          var r = (now + Math.random() * 16) % 16 | 0;
-          now = Math.floor(now / 16);
-          return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
-        });
-        return uuid;
+        return fromParts(
+          randomUI32(),
+          randomUI16(),
+          0x4000 | randomUI12(),
+          0x80   | randomUI06(),
+          randomUI08(),
+          randomUI48()
+        );
       },
+
       // addition by Ka-Jan to test for validity
       // Based on: http://stackoverflow.com/questions/7905929/how-to-test-valid-uuid-guid
       validate: function (uuid) {
