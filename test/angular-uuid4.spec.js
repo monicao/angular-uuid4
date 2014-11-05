@@ -9,16 +9,17 @@ describe('uuid4', function() {
     }));
 
     it('should generate a uuid', function(){
-      expect(uuidService.generate()).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+      var uuid = uuidService.generate()
+      expect(uuidService.validate(uuid)).toEqual(true);
     });
 
     it('should validate a lower cased uuid', function(){
       // uuid taken from RFC http://www.ietf.org/rfc/rfc4122.txt
-      expect(uuidService.validate('f81d4fae-7dec-11d0-a765-00a0c91e6bf6')).toEqual(true);
+      expect(uuidService.validate('ded6dd9e-49d9-485b-bac1-da0ca0ae9d70')).toEqual(true);
     });
 
     it('should validate an uppper cased uuid', function(){
-      expect(uuidService.validate('F81D4FAE-7DEC-11D0-A765-00A0C91E6BF6')).toEqual(true);
+      expect(uuidService.validate('DED6DD9E-49D9-485B-BAC1-DA0CA0AE9D70')).toEqual(true);
     });
 
     it('should identify an invalid uuid', function(){
