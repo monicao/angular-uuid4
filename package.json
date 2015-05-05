@@ -29,7 +29,7 @@
     "load-grunt-tasks": "~0.1.0",
     "connect-livereload": "~0.2.0",
     "grunt-google-cdn": "~0.2.0",
-    "grunt-ngmin": "~0.0.2",
+    "grunt-ng-annotate": "~0.10.0",
     "time-grunt": "~0.1.0",
     "karma-ng-scenario": "~0.1.0",
     "grunt-karma": "~0.6.2",
