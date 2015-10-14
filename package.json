@@ -2,6 +2,7 @@
   "name": "angular-uuid4",
   "version": "0.3.0",
   "dependencies": {},
+  "main": "angular-uuid4.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:monicao/angular-uuid4.git"
