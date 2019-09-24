@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git@github.com:monicao/angular-uuid4.git"
   },
+  "license": "SEE LICENSE IN LICENSE.txt",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
